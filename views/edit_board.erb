@@ -1,0 +1,20 @@
+<h1>Update <%= @board.name() %></h1>
+
+<form action="/boards/<%= @board.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <label for="name">Edit Board Name</label>
+  <input id="name" name="name" type="text" value="<%= @board.name %>">
+  <label for="category">Edit Board Category</label>
+  <input id="category" name="category" type="text" value="<%= @board.category %>">
+
+  <button type="submit">Update</button>
+</form>
+
+<p><a href="/">Return to board list</a></p>
+
+<form action="/boards/<%= @board.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete board</button>
+</form>

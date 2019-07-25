@@ -1,0 +1,33 @@
+<h4>Board Name: <%= @board.name %></h4>
+<h4>Category: <%= @board.category %></h4>
+
+<h3>Posts</h3>
+
+<% if @board.posts.any? %>
+    <ol>
+      <% @board.posts.each do |post| %>
+        <li><%= post.author %>
+          <ol>
+            <li><%= post.body %></li>
+          </ol>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>There are no posts for this board yet.</p>
+  <% end %>
+
+  <h4>Add a post:</h4>
+
+  <form action="/boards/<%= @board.id %>/posts" method="post">
+  <div class="form-group">
+    <label for="author">Post name</label>
+    <input id="author" name="author" class="form-control" type="text">
+    <label for="body">Body</label>
+    <textarea name="body" rows="8" cols="80" class="form-control"></textarea>
+  </div>
+  <button type="submit" class="btn">Add post</button>
+</form>
+
+<p><a href="/boards/<%= @board.id %>/edit">Edit board</a></p>
+<a href="/">Return to board list</a>
