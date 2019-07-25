@@ -12,7 +12,7 @@ describe('create a board path', {:type => :feature}) do
     expect(page).to have_content("Nick's Awesome Board")
   end
 
-  it('creates an board and goes to the main index') do
+  it('creates an board and goes to the main index page') do
     visit('/')
     click_on('Add a Board')
     fill_in('name', :with => "Nick")
